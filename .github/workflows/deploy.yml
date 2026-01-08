@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: "us-east-1"
-  AWS_ROLE_ARN: "arn:aws:iam::40732477176:role/github-actions-role"
+  AWS_ROLE_ARN: "arn:aws:iam::407324771176:role/github-actions-role"
   ECR_REPOSITORY: "workshop-main-server"
   IMAGE_TAG: ${{ github.sha }}
 
