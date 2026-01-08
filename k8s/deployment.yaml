@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: main-agent
+  namespace: agent-workshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: main-agent
+  template:
+    metadata:
+      labels:
+        app: main-agent
+    spec:
+      containers:
+      - name: main-agent
+        image: <your-aws-account-id>.dkr.ecr.<your-region>.amazonaws.com/<your-repo-name>:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+        - name: NODE_ENV
+          value: "production"
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/apps/main-agent/config.toml
+          subPath: config.toml
+      volumes:
+      - name: config-volume
+        configMap:
+          name: main-agent-config

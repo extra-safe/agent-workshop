@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: main-agent-config
+  namespace: agent-workshop
+data:
+  config.toml: |
+    [server]
+    port = 3000
+
+    [nats]
+    url = "nats://user:password@nats-service:4222"
+    subject_registration = "agents.registration"
+
+    [mongodb]
+    uri = "mongodb+srv://user:password@cluster.mongodb.net/agent_workshop"
+    db_name = "agent_workshop"
+    collection_name = "capabilities"
+
+    [slack]
+    bot_token = "xoxb-your-token"
+    signing_secret = "your-secret"
+
+    [openai]
+    api_key = "sk-your-key"
+    model = "gpt-4"
