@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  AWS_REGION: "your-aws-region"
-  AWS_ROLE_ARN: "arn:aws:iam::123456789012:role/your-role-name"
-  ECR_REPOSITORY: "your-ecr-repo-name"
+  AWS_REGION: "us-east-1"
+  AWS_ROLE_ARN: "arn:aws:iam::40732477176:role/github-actions-role"
+  ECR_REPOSITORY: "workshop-main-server"
   IMAGE_TAG: ${{ github.sha }}
 
 permissions:
