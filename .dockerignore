@@ -1,0 +1,10 @@
+node_modules
+dist
+apps/main-agent/node_modules
+apps/main-agent/dist
+packages/common/node_modules
+packages/common/dist
+.git
+.github
+*.template
+config.toml

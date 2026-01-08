@@ -1,0 +1,18 @@
+{
+  "name": "agent-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev:main": "nodemon apps/main-agent/src/index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
+  }
+}

@@ -1,0 +1,19 @@
+[server]
+port = 3000
+
+[nats]
+url = "nats://user:password@host:port"
+subject_registration = "agents.registration"
+
+[mongodb]
+uri = "mongodb+srv://user:password@cluster.mongodb.net/?appName=app"
+db_name = "agent_workshop"
+collection_name = "capabilities"
+
+[slack]
+bot_token = "xoxb-your-bot-token"
+signing_secret = "your-signing-secret"
+
+[openai]
+api_key = "sk-your-openai-key"
+model = "gpt-4"
