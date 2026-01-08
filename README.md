@@ -9,21 +9,21 @@ Designed for **Vibe Coding** and AI-agent collaboration, this repository follows
 ## 🏗 Architecture & System Flow
 
 ```mermaid
-graph TD
-    User["Slack User"] -->|Slash Command| Webhook["Main Agent Webhook"]
-    Webhook -->|Async Invoke| Router["LangGraph Router"]
+flowchart TD
+    User([Slack User]) -->|"Slash Command"| Webhook[Main Agent Webhook]
+    Webhook -->|"Async Invoke"| Router{LangGraph Router}
     
-    subgraph Core [Main Agent Brain]
-        Router -->|Fetch Capabilities| Mongo[(MongoDB Atlas)]
-        Router -->|Analysis & Decision| LLM((LLM))
-        Router -->|Tool Call| NATSPub["NATS Publisher"]
+    subgraph MainAgent [Main Agent Brain]
+        Router -->|"Fetch Capabilities"| Mongo[(MongoDB Atlas)]
+        Router -->|"Analysis & Decision"| LLM((LLM))
+        Router -->|"Tool Call"| NATSPub[NATS Publisher]
     end
     
-    NATSPub -->|Subject: agents.capability.*| SubAgent["Specialized Sub-Agent"]
-    SubAgent -->|Process & Reply| SlackAPI["Slack Web API"]
+    NATSPub -->|"Subject: agents.capability.*"| SubAgent[Specialized Sub-Agent]
+    SubAgent -->|"Process & Reply"| SlackAPI([Slack Web API])
     
-    OtherAgents["External Agents"] -->|Register Capability| NATSReg["NATS: agents.registration"]
-    NATSReg -->|Worker| Mongo
+    OtherAgents([External Agents]) -->|"Register"| NATSReg[NATS: agents.registration]
+    NATSReg -->|"Worker"| Mongo
 ```
 
 1.  **Capability Registration**: External agents register their abilities (name, description, NATS subject suffix) by publishing to a NATS registration subject. A background worker in the Main Agent persists this to MongoDB.

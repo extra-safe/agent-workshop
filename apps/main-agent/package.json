@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/apps/main-agent/src/index.js",
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "test:reg": "ts-node test-registration.ts"

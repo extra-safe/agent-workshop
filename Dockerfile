@@ -34,4 +34,4 @@ EXPOSE 3000
 # Set working directory to the app
 WORKDIR /app/apps/main-agent
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/apps/main-agent/src/index.js"]
