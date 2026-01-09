@@ -1,4 +1,5 @@
 import { connect, NatsConnection, JSONCodec, ConnectionOptions } from 'nats';
+import { NatsRegistrationMessage } from '../models/types';
 
 export class NatsService {
   private nc?: NatsConnection;
@@ -23,6 +24,11 @@ export class NatsService {
   async publish(subject: string, data: any) {
     if (!this.nc) throw new Error('NATS not connected');
     this.nc.publish(subject, this.jc.encode(data));
+  }
+
+  async registerAgent(registrationSubject: string, agentInfo: NatsRegistrationMessage) {
+    console.log(`Registering agent [${agentInfo.name}] on subject [${registrationSubject}]`);
+    await this.publish(registrationSubject, agentInfo);
   }
 
   async subscribe(subject: string, callback: (data: any) => void) {

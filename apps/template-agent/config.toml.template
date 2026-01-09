@@ -1,0 +1,14 @@
+# Template Agent Configuration
+
+[nats]
+url = "nats://localhost:4222"
+subject_registration = "agents.registration"
+subject_suffix = "template" # Change this to your unique agent suffix
+
+[openai]
+api_key = "sk-..."
+model = "gpt-4o"
+
+[slack]
+bot_token = "xoxb-..."
+

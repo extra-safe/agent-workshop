@@ -1,0 +1,27 @@
+{
+  "name": "template-agent",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node dist/apps/template-agent/src/index.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@agent-workshop/common": "*",
+    "@langchain/core": "^1.1.9",
+    "@langchain/langgraph": "^1.0.7",
+    "@langchain/openai": "^1.2.0",
+    "langchain": "^1.2.3",
+    "dotenv": "^16.4.7",
+    "toml": "^3.0.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.130",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "nodemon": "^3.1.9"
+  }
+}
+
